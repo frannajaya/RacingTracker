@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Racingtracker</string>
+    <string name="app_title">Racing Tracker</string>
+
+    <string name="new_race">New Race</string>
+    <string name="race_name">Race Name :</string>
+    <string name="saved_race">Saved Race</string>
+    <string name="create_new_race">Create New Race</string>
+
+    <string name="description">Description :</string>
+
+    <string name="create_new_match">Create New Match</string>
+    <string name="new_match">New Match</string>
+    <string name="add_match">Add Match</string>
+</resources>
