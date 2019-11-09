@@ -19,7 +19,7 @@
         />
 
     <Button
-        android:id="@+id/new_race"
+        android:id="@+id/new_race_button"
         android:layout_width="220sp"
         android:layout_height="55sp"
         android:layout_gravity="center_horizontal"
@@ -30,7 +30,7 @@
         />
 
     <Button
-        android:id="@+id/saved_race"
+        android:id="@+id/saved_race_button"
         android:layout_width="220sp"
         android:layout_height="55sp"
         android:layout_gravity="center_horizontal"
