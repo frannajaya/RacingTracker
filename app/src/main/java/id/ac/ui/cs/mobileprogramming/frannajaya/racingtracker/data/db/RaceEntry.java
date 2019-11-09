@@ -3,7 +3,7 @@ package id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Race")
+@Entity(tableName = "Racedb")
 public class RaceEntry {
 
     @PrimaryKey(autoGenerate = true)

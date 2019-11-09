@@ -3,15 +3,19 @@ package id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Record",
+@Entity(tableName = "Recorddb",
         foreignKeys = @ForeignKey(
             entity = MatchEntry.class,
             parentColumns = "id",
             childColumns = "match_id",
             onDelete = ForeignKey.CASCADE
-        )
+        ),
+        indices = {
+                @Index(name = "matchId_index", value = {"match_id"})
+        }
 )
 public class RecordEntry {
     @PrimaryKey(autoGenerate = true)
