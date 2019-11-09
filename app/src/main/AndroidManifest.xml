@@ -3,9 +3,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/"
+        android:icon="@mipmap/rac_trac_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/RtLogo"
+        android:roundIcon="@mipmap/rac_trac_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
@@ -30,16 +30,16 @@
 <!--        </activity>-->
 <!--        &lt;!&ndash;OR Add Other activities like this&ndash;&gt;-->
 <!--        <activity android:name=".YourActivityName4" />-->
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:grantUriPermissions="true"
-            android:exported="false"
-            android:authorities="${applicationId}">
+<!--        <provider-->
+<!--            android:name="android.support.v4.content.FileProvider"-->
+<!--            android:grantUriPermissions="true"-->
+<!--            android:exported="false"-->
+<!--            android:authorities="${applicationId}">-->
 
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_file_paths" />
+<!--            <meta-data-->
+<!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
+<!--                android:resource="@xml/provider_file_paths" />-->
 
-        </provider>
+<!--        </provider>-->
     </application>
 </manifest>

@@ -27,7 +27,6 @@
         android:textAppearance="@style/new_race"
         android:text="@string/new_race"
         android:layout_marginBottom="10dp"
-        android:onClick="newRacePressed"
         />
 
     <Button
