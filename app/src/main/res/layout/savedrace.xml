@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/savedrace"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="#DFDFDF"
-    >
+    android:background="#DFDFDF">
+    <data>
+        <variable
+            android:name = "race_list"/>
+    </data>
     <TextView
         android:id="@+id/saved_race_title"
         android:layout_width="wrap_content"
@@ -24,6 +27,7 @@
         android:paddingLeft="30dp"
         android:paddingTop="20dp"
         android:textAppearance="@style/item_list"
+        tools:listitem="@layout/racedetails"
         >
     </ListView>
 
