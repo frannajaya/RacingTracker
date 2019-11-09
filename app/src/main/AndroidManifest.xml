@@ -18,28 +18,48 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--        &lt;!&ndash;Add Other activities like this&ndash;&gt;-->
-<!--        <activity android:name=".YourActivityName2" >-->
-<!--            &lt;!&ndash;Default Intent Filter&ndash;&gt;-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.DEFAULT" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-<!--        &lt;!&ndash;OR Other activities like this And  intent filter is not necessary in other activites&ndash;&gt;-->
-<!--        <activity android:name=".YourActivityName3" >-->
-<!--        </activity>-->
-<!--        &lt;!&ndash;OR Add Other activities like this&ndash;&gt;-->
-<!--        <activity android:name=".YourActivityName4" />-->
-<!--        <provider-->
-<!--            android:name="android.support.v4.content.FileProvider"-->
-<!--            android:grantUriPermissions="true"-->
-<!--            android:exported="false"-->
-<!--            android:authorities="${applicationId}">-->
 
-<!--            <meta-data-->
-<!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
-<!--                android:resource="@xml/provider_file_paths" />-->
+        <!-- New Race Activity-->
+        <activity android:name=".CreateNewRaceActivity" >
+            <intent-filter>
+                <!-- MAIN represents that it is the Main Activity-->
+                <action android:name="android.intent.action.MAIN" />
+                <!-- Launcher Denotes that it will be the first launching activity-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-<!--        </provider>-->
+        <!-- New Race Activity-->
+        <activity android:name=".RaceListActivity" >
+            <intent-filter>
+                <!-- MAIN represents that it is the Main Activity-->
+                <action android:name="android.intent.action.MAIN" />
+                <!-- Launcher Denotes that it will be the first launching activity-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 </manifest>
+    <!--        &lt;!&ndash;Add Other activities like this&ndash;&gt;-->
+    <!--        <activity android:name=".YourActivityName2" >-->
+    <!--            &lt;!&ndash;Default Intent Filter&ndash;&gt;-->
+    <!--            <intent-filter>-->
+    <!--                <action android:name="android.intent.action.DEFAULT" />-->
+    <!--            </intent-filter>-->
+    <!--        </activity>-->
+    <!--        &lt;!&ndash;OR Other activities like this And  intent filter is not necessary in other activites&ndash;&gt;-->
+    <!--        <activity android:name=".YourActivityName3" >-->
+    <!--        </activity>-->
+    <!--        &lt;!&ndash;OR Add Other activities like this&ndash;&gt;-->
+    <!--        <activity android:name=".YourActivityName4" />-->
+    <!--        <provider-->
+    <!--            android:name="android.support.v4.content.FileProvider"-->
+    <!--            android:grantUriPermissions="true"-->
+    <!--            android:exported="false"-->
+    <!--            android:authorities="${applicationId}">-->
+
+    <!--            <meta-data-->
+    <!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
+    <!--                android:resource="@xml/provider_file_paths" />-->
+    <!--        </provider>-->
