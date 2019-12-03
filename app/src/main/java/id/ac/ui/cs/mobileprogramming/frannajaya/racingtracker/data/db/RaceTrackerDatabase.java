@@ -19,17 +19,15 @@ public abstract class RaceTrackerDatabase extends RoomDatabase {
 
     public static RaceTrackerDatabase getTrackerDatabase(Context context) {
         if (INSTANCE == null) {
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                    RaceTrackerDatabase.class, "race-tracker-database")
-                    .allowMainThreadQueries()
-                    .build();
-            // allow queries on the main thread.
-            // Don't do this on a real app! See PersistenceBasicSample for an example.
+            synchronized (RaceTrackerDatabase.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                            RaceTrackerDatabase.class, "race_tracker_db")
+                            .fallbackToDestructiveMigration()
+                            .build();
+                }
+            }
         }
         return INSTANCE;
-    }
-
-    public static void destroyInstance() {
-        INSTANCE = null;
     }
 }

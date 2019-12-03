@@ -1,24 +1,20 @@
 package id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.viewmodel;
 
-import androidx.lifecycle.ViewModel;
+import android.app.Application;
 
-public class RaceViewModel extends ViewModel {
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.MutableLiveData;
 
-    public ObservableArrayList<String> raceItem;
+import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.repository.RaceRepository;
 
-    public void onClickedItem(int row, int column) {
-        if (game.cells[row][column] == null) {
-            game.cells[row][column] = new Cell(game.currentPlayer);
-            cells.put(stringFromNumbers(row, column), game.currentPlayer.value);
-            if (game.hasGameEnded())
-                game.reset();
-            else
-                game.switchPlayer();
-        }
+public class RaceViewModel extends AndroidViewModel {
+    private MutableLiveData<Boolean> createNewClicked = new MutableLiveData<>();
+    private MutableLiveData<Boolean> debtClicked = new MutableLiveData<>();
+    private MutableLiveData<String> name = new MutableLiveData<>();
+    private RaceRepository raceRepo;
+
+    public RaceViewModel(Application application) {
+        super(application);
+        repo = new Repository(application);
     }
 }
-//adapter = new ArrayAdapter<String>(this,
-//        android.R.layout.simple_list_item_1,
-//        listFruits);
-//        setListAdapter(adapter);
-
