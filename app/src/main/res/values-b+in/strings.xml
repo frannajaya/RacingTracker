@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">Racingtracker</string>
     <string name="app_title">Racing Tracker</string>
+
+    <string name="new_race">Balapan Baru</string>
+    <string name="race_name">Nama Balapan :</string>
+    <string name="saved_race">Balapan Tersimpan</string>
+    <string name="create_new_race">Buat Baru</string>
+
+    <string name="description">Deskripsi :</string>
+
+    <string name="create_new_match">Buat Baru</string>
+    <string name="new_match">Pertandingan Baru</string>
+    <string name="add_match">Tambah Pertandingan</string>
+
+    <string name="preferences">race.preferences</string>
+    <string name="change_language">Pilihan Bahasa</string>
 </resources>

@@ -12,4 +12,6 @@
     <string name="create_new_match">Create New Match</string>
     <string name="new_match">New Match</string>
     <string name="add_match">Add Match</string>
+    <string name="preferences">race.preferences</string>
+    <string name="change_language">Language Options</string>
 </resources>

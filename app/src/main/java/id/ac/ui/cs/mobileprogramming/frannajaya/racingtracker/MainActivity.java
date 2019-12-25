@@ -1,37 +1,72 @@
 package id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
-public class MainActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
+import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.databinding.HomeBinding;
+
+import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.viewmodel.MainViewModel;
+
+public class MainActivity extends AppCompatActivity {
+
+    private HomeBinding binding;
+    private MainViewModel mainViewModel;
+    private SharedPreferences preferences;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
 
-        Button newRaceButton = findViewById(R.id.new_race_button);
-        newRaceButton.setOnClickListener(new nrButtonListener());
+        preferences = getSharedPreferences(getString(R.string.preferences), Context.MODE_PRIVATE);
+        binding = DataBindingUtil.setContentView(this, R.layout.home);
+        mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 
-        Button savedRaceButton = findViewById(R.id.saved_race_button);
-        savedRaceButton.setOnClickListener(new srButtonListener());
-    }
-    class nrButtonListener implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-            Intent myIntent = new Intent(view.getContext(), CreateNewRaceActivity.class);
-            startActivityForResult(myIntent, 0);
-        }
+        binding.setViewmodel(mainViewModel);
+        observe();
     }
 
-    class srButtonListener implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-            Intent myIntent = new Intent(view.getContext(), RaceListActivity.class);
-            startActivityForResult(myIntent, 0);
-        }
+    public void observe(){
+        mainViewModel.isNewRaceClicked().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean clicked) {
+                if (clicked) {
+                    mainViewModel.resetNewRaceClicked();
+                    startActivity(new Intent(getApplicationContext(), CreateNewRaceActivity.class));
+                }
+            }
+        });
+        mainViewModel.isChangeLanguageClicked().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean clicked) {
+                if (clicked) {
+                    mainViewModel.resetChangeLanguageClicked();
+                    startActivity(new Intent(getApplicationContext(), ChangeLanguageActivity.class));
+                }
+            }
+        });
+        mainViewModel.isSavedRaceClicked().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean clicked) {
+                if (clicked) {
+                    mainViewModel.resetSavedRaceClicked();
+                    startActivity(new Intent(getApplicationContext(), RaceListActivity.class));
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent exit = new Intent(Intent.ACTION_MAIN);
+        exit.addCategory(Intent.CATEGORY_HOME);
+        exit.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(exit);
     }
 }

@@ -1,42 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/home"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:background="#DFDFDF"
-    >
-    <TextView
-        android:id="@+id/app_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/app_title"
-        android:textAppearance="@style/app_title"
-        android:layout_marginTop="220dp"
-        android:layout_marginBottom="10dp"
-        />
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/home"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="#DFDFDF"
+        >
+        <TextView
+            android:id="@+id/app_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/app_title"
+            android:textAppearance="@style/app_title"
+            android:layout_marginTop="220dp"
+            android:layout_marginBottom="10dp"
+            />
 
-    <Button
-        android:id="@+id/new_race_button"
-        android:layout_width="220sp"
-        android:layout_height="55sp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/greenbutton"
-        android:textAppearance="@style/new_race"
-        android:text="@string/new_race"
-        android:layout_marginBottom="10dp"
-        />
+        <Button
+            android:id="@+id/new_race_button"
+            android:layout_width="220sp"
+            android:layout_height="55sp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/greenbutton"
+            android:textAppearance="@style/new_race"
+            android:text="@string/new_race"
+            android:layout_marginBottom="10dp"
+            />
 
-    <Button
-        android:id="@+id/saved_race_button"
-        android:layout_width="220sp"
-        android:layout_height="55sp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/bluebutton"
-        android:textAppearance="@style/saved_race"
-        android:text="@string/saved_race"
-        />
+        <Button
+            android:id="@+id/saved_race_button"
+            android:layout_width="220sp"
+            android:layout_height="55sp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bluebutton"
+            android:textAppearance="@style/saved_race"
+            android:text="@string/saved_race"
+            />
 
-</LinearLayout>
+    </LinearLayout>
+</layout>

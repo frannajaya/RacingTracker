@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/rac_trac_logo"
@@ -10,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <!-- Main Activity-->
-        <activity android:name=".MainActivity" >
+        <activity android:name="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.MainActivity" >
             <intent-filter>
                 <!-- MAIN represents that it is the Main Activity-->
                 <action android:name="android.intent.action.MAIN" />
@@ -20,46 +21,29 @@
         </activity>
 
         <!-- New Race Activity-->
-        <activity android:name=".CreateNewRaceActivity" >
-            <intent-filter>
-                <!-- MAIN represents that it is the Main Activity-->
-                <action android:name="android.intent.action.MAIN" />
-                <!-- Launcher Denotes that it will be the first launching activity-->
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.CreateNewRaceActivity" >
         </activity>
-
-        <!-- New Race Activity-->
-        <activity android:name=".RaceListActivity" >
-            <intent-filter>
-                <!-- MAIN represents that it is the Main Activity-->
-                <action android:name="android.intent.action.MAIN" />
-                <!-- Launcher Denotes that it will be the first launching activity-->
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <!-- Race List Activity-->
+        <activity android:name="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.RaceListActivity" >
+        </activity>
+        <!-- Race Details Activity-->
+        <activity android:name="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.RaceDetailsActivity" >
+        </activity>
+        <!-- Change Language Activity-->
+        <activity android:name="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.ChangeLanguageActivity" >
+        </activity>
+        <!-- New Match Activity-->
+        <activity android:name="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.CreateNewMatchActivity" >
+        </activity>
+        <!-- Match Details Activity-->
+        <activity android:name="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.MatchDetailsActivity" >
+        </activity>
+        <!-- New Record Activity-->
+        <activity android:name="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.CreateNewRecordActivity" >
+        </activity>
+        <!-- Record Details Activity-->
+        <activity android:name="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.RecordDetailsActivity" >
         </activity>
 
     </application>
 </manifest>
-    <!--        &lt;!&ndash;Add Other activities like this&ndash;&gt;-->
-    <!--        <activity android:name=".YourActivityName2" >-->
-    <!--            &lt;!&ndash;Default Intent Filter&ndash;&gt;-->
-    <!--            <intent-filter>-->
-    <!--                <action android:name="android.intent.action.DEFAULT" />-->
-    <!--            </intent-filter>-->
-    <!--        </activity>-->
-    <!--        &lt;!&ndash;OR Other activities like this And  intent filter is not necessary in other activites&ndash;&gt;-->
-    <!--        <activity android:name=".YourActivityName3" >-->
-    <!--        </activity>-->
-    <!--        &lt;!&ndash;OR Add Other activities like this&ndash;&gt;-->
-    <!--        <activity android:name=".YourActivityName4" />-->
-    <!--        <provider-->
-    <!--            android:name="android.support.v4.content.FileProvider"-->
-    <!--            android:grantUriPermissions="true"-->
-    <!--            android:exported="false"-->
-    <!--            android:authorities="${applicationId}">-->
-
-    <!--            <meta-data-->
-    <!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
-    <!--                android:resource="@xml/provider_file_paths" />-->
-    <!--        </provider>-->

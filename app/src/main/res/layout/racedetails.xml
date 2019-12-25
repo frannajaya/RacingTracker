@@ -1,52 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/name_of_race"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textAppearance="@style/activity_title"/>
-    <TextView
-        android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/description"
-        android:paddingTop="50dp"
-        android:textAppearance="@style/text_form"/>
-    <TextView
-        android:id="@+id/description_input"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:layout_gravity="center_horizontal"/>
-    <view
-        android:layout_width="350dp"
-        android:layout_height="3dp"
-        android:paddingTop="50dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/linespace"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textAppearance="@style/activity_title"
-        />
-    <ListView
-        android:layout_width="350dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"/>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="item"
+            type="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceEntry" />
+    </data>
 
-    <Button
-        android:id="@+id/add_match"
-        android:layout_width="240sp"
-        android:layout_height="60sp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/greenbutton"
-        android:text="@string/add_match"
-        android:textAppearance="@style/new_race" />
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="764dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name_of_race"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@{item.title}"
+            android:textAppearance="@style/activity_title" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="50dp"
+            android:text="@string/description"
+            android:textAppearance="@style/text_form" />
+
+        <TextView
+            android:id="@+id/description_input"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="20dp"
+            android:text="@{item.description}" />
+
+        <view
+            android:layout_width="350dp"
+            android:layout_height="3dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/linespace"
+            android:paddingTop="50dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="@style/activity_title" />
+
+        <ListView
+            android:layout_width="350dp"
+            android:layout_height="315dp"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/add_match"
+            android:layout_width="240sp"
+            android:layout_height="60sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/greenbutton"
+            android:text="@string/add_match"
+            android:textAppearance="@style/new_race" />
+    </LinearLayout>
+</layout>

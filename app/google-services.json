@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "709052582202",
+    "firebase_url": "https://racetracker-621c3.firebaseio.com",
+    "project_id": "racetracker-621c3",
+    "storage_bucket": "racetracker-621c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709052582202:android:a1659f241a687841966803",
+        "android_client_info": {
+          "package_name": "id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709052582202-0eid04m5l4fqm7msq1i5nbesn0i7dof1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker",
+            "certificate_hash": "94b7570b6f28ac001cc20faf64675087064d282c"
+          }
+        },
+        {
+          "client_id": "709052582202-8ms850083fokg90n6mo3sveq90ba61dg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0PN2LuhEs2bFCeIuN29h9P9878UkT2ZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "709052582202-8ms850083fokg90n6mo3sveq90ba61dg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
