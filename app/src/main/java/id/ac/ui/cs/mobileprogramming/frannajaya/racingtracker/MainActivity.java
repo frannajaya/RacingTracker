@@ -42,12 +42,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        mainViewModel.isChangeLanguageClicked().observe(this, new Observer<Boolean>() {
+        mainViewModel.isChooseLanguageClicked().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean clicked) {
                 if (clicked) {
-                    mainViewModel.resetChangeLanguageClicked();
-                    startActivity(new Intent(getApplicationContext(), ChangeLanguageActivity.class));
+                    mainViewModel.resetChooseLanguageClicked();
+                    startActivity(new Intent(getApplicationContext(), ChooseLanguageActivity.class));
                 }
             }
         });

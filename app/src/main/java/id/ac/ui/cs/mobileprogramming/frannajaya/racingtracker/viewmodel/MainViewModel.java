@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 public class MainViewModel extends AndroidViewModel {
     private MutableLiveData<Boolean> newRaceClicked = new MutableLiveData<>();
-    private MutableLiveData<Boolean> changeLanguageClicked = new MutableLiveData<>();
+    private MutableLiveData<Boolean> chooseLanguageClicked = new MutableLiveData<>();
     private MutableLiveData<Boolean> savedRaceClicked = new MutableLiveData<>();
 
     public MainViewModel(@NonNull Application application) {
@@ -19,8 +19,8 @@ public class MainViewModel extends AndroidViewModel {
         return newRaceClicked;
     }
 
-    public MutableLiveData<Boolean> isChangeLanguageClicked() {
-        return changeLanguageClicked;
+    public MutableLiveData<Boolean> isChooseLanguageClicked() {
+        return chooseLanguageClicked;
     }
 
     public MutableLiveData<Boolean> isSavedRaceClicked() { return savedRaceClicked; }
@@ -33,12 +33,12 @@ public class MainViewModel extends AndroidViewModel {
         newRaceClicked.setValue(false);
     }
 
-    public void onChangeLanguageClicked() {
-        changeLanguageClicked.setValue(true);
+    public void onChooseLanguageClicked() {
+        chooseLanguageClicked.setValue(true);
     }
 
-    public void resetChangeLanguageClicked() {
-        changeLanguageClicked.setValue(false);
+    public void resetChooseLanguageClicked() {
+        chooseLanguageClicked.setValue(false);
     }
 
     public void onSavedRaceClicked() { savedRaceClicked.setValue(true); }

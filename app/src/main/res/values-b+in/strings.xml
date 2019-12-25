@@ -14,5 +14,8 @@
     <string name="add_match">Tambah Pertandingan</string>
 
     <string name="preferences">race.preferences</string>
-    <string name="change_language">Pilihan Bahasa</string>
+    <string name="choose_language">Pilih Bahasa</string>
+
+    <string name="english">English</string>
+    <string name="indonesia">Indonesia</string>
 </resources>

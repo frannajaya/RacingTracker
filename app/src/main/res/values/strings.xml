@@ -13,5 +13,8 @@
     <string name="new_match">New Match</string>
     <string name="add_match">Add Match</string>
     <string name="preferences">race.preferences</string>
-    <string name="change_language">Language Options</string>
+    <string name="choose_language">Choose Languages</string>
+
+    <string name="english">English</string>
+    <string name="indonesia">Indonesia</string>
 </resources>

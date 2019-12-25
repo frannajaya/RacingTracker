@@ -51,8 +51,8 @@
             android:layout_width="220sp"
             android:layout_height="55sp"
             android:layout_gravity="center_horizontal"
-            android:onClick="@{() -> viewmodel.onChangeLanguageClicked()}"
-            android:text="@string/change_language"
+            android:onClick="@{() -> viewmodel.onChooseLanguageClicked()}"
+            android:text="@string/choose_language"
             />
     </LinearLayout>
 </layout>

@@ -11,19 +11,16 @@ import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.adapter.RaceAdapte
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceEntry;
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.repository.RaceRepository;
 
-public class RaceViewModel extends AndroidViewModel {
+public class NewRaceViewModel extends AndroidViewModel {
     private RaceRepository raceRepo;
     private RaceAdapter adapter = new RaceAdapter();
 
     private MutableLiveData<Boolean> createNewClicked = new MutableLiveData<>();
-    private MutableLiveData<RaceEntry> raceLiveData = new MutableLiveData<>();
-    private MutableLiveData<Boolean> raceClicked = new MutableLiveData<>();
 
-    public RaceViewModel(Application application) {
+    public NewRaceViewModel(Application application) {
         super(application);
         raceRepo = new RaceRepository(application);
         adapter.setRaceList(new ArrayList<RaceEntry>());
     }
-
 
 }

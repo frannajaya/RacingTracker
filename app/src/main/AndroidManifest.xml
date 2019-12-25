@@ -30,7 +30,7 @@
         <activity android:name="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.RaceDetailsActivity" >
         </activity>
         <!-- Change Language Activity-->
-        <activity android:name="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.ChangeLanguageActivity" >
+        <activity android:name="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.ChooseLanguageActivity" >
         </activity>
         <!-- New Match Activity-->
         <activity android:name="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.CreateNewMatchActivity" >

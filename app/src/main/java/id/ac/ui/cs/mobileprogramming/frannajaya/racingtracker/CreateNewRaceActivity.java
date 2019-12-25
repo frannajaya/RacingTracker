@@ -1,11 +1,12 @@
 package id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -13,7 +14,7 @@ import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceEntry;
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceTrackerDao;
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceTrackerDatabase;
 
-public class CreateNewRaceActivity extends Activity {
+public class CreateNewRaceActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

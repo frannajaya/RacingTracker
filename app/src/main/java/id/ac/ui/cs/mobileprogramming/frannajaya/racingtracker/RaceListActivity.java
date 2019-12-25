@@ -13,11 +13,11 @@ import androidx.lifecycle.ViewModelProviders;
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.adapter.RaceAdapter;
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceEntry;
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.databinding.RacedetailsBinding;
-import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.viewmodel.RaceViewModel;
+import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.viewmodel.NewRaceViewModel;
 
 public class RaceListActivity extends AppCompatActivity implements RaceAdapter.OnItemClickListener {
     private RacedetailsBinding binding;
-    private RaceViewModel raceViewModel;
+    private NewRaceViewModel newRaceViewModel;
     private SharedPreferences preferences;
 
     @Override
@@ -25,9 +25,9 @@ public class RaceListActivity extends AppCompatActivity implements RaceAdapter.O
         super.onCreate(savedInstanceState);
         preferences = getSharedPreferences(getString(R.string.preferences), Context.MODE_PRIVATE);
         binding = DataBindingUtil.setContentView(this, R.layout.racedetails);
-        raceViewModel = ViewModelProviders.of(this).get(RaceViewModel.class);
-        raceViewModel.setAdapterClickListener(this);
-        raceViewModel.email.setValue(preferences.getString("email", ""));
+        newRaceViewModel = ViewModelProviders.of(this).get(NewRaceViewModel.class);
+        newRaceViewModel.setAdapterClickListener(this);
+        newRaceViewModel.email.setValue(preferences.getString("email", ""));
 
         binding.setViewModel(viewModel);
         binding.rvDebtList.setLayoutManager(new LinearLayoutManager(this));
@@ -42,7 +42,7 @@ public class RaceListActivity extends AppCompatActivity implements RaceAdapter.O
 
         observe();
         ActivityGameBinding raceListBinding = DataBindingUtil.setContentView(this, R.layout.activity_game);
-        raceViewModel = ViewModelProviders.of(this).get(GameViewModel.class);
+        newRaceViewModel = ViewModelProviders.of(this).get(GameViewModel.class);
         gameViewModel.init(player1, player2);
         activityGameBinding.setGameViewModel(gameViewModel);
         setUpOnGameEndListener();

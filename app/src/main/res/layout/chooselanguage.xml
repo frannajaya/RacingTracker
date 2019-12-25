@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.viewmodel.ChooseLanguageViewModel" />
+    </data>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/home"
@@ -26,8 +31,9 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/greenbutton"
             android:textAppearance="@style/new_race"
-            android:text="@string/new_race"
+            android:text="@string/english"
             android:layout_marginBottom="10dp"
+            android:onClick="@{() -> viewModel.onEnSelected()}"
             />
 
         <Button
@@ -37,7 +43,8 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/bluebutton"
             android:textAppearance="@style/saved_race"
-            android:text="@string/saved_race"
+            android:text="@string/indonesia"
+            android:onClick="@{() -> viewModel.onInSelected()}"
             />
 
     </LinearLayout>
