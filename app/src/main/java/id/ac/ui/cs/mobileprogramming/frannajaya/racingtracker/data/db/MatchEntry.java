@@ -21,10 +21,11 @@ public class MatchEntry {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-
-    @ColumnInfo(name = "race_id") private int raceId;
     private String title;
     private String description;
+
+    @ColumnInfo(name = "race_id")
+    private int raceId;
 
     public MatchEntry(int raceId, String title, String description) {
         this.raceId = raceId;

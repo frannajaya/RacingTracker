@@ -21,9 +21,13 @@ public class RecordEntry {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    @ColumnInfo(name = "person_name") private String personName;
-    @ColumnInfo(name = "time_recorded") private long timeRecorded;
-    @ColumnInfo(name = "match_id") private int matchId;
+    @ColumnInfo(name = "person_name")
+    private String personName;
+    @ColumnInfo(name = "time_recorded")
+    private long timeRecorded;
+
+    @ColumnInfo(name = "match_id")
+    private int matchId;
 
     public RecordEntry(String personName, long timeRecorded) {
         this.personName = personName;
