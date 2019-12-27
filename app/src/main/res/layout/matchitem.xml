@@ -21,7 +21,8 @@
         android:layout_marginStart="8dp"
         card_view:cardCornerRadius="10dp"
         android:layout_gravity="center_horizontal"
-        android:elevation="5dp">
+        android:elevation="5dp"
+        android:background="#DFDFDF">
         <TextView
             android:id="@+id/matchItemTitle"
             android:layout_width="250dp"

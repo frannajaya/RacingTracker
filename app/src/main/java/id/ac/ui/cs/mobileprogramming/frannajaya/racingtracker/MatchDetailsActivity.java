@@ -44,32 +44,34 @@ public class MatchDetailsActivity extends AppCompatActivity implements RecordAda
         binding = DataBindingUtil.setContentView(this, R.layout.matchdetails);
         matchDetailsViewModel = ViewModelProviders.of(this).get(MatchDetailsViewModel.class);
 
-        RaceEntry thisRace = getIntent().getParcelableExtra("raceItem");
-        raceDetailsViewModel.setThisRace(thisRace);
+        MatchEntry thisMatch = getIntent().getParcelableExtra("matchItem");
+        matchDetailsViewModel.setThisMatch(thisMatch);
 
-        raceDetailsViewModel.setAdapterClickListener(this);
-        binding.setViewmodel(raceDetailsViewModel);
-        binding.setRace(thisRace);
-        binding.rvMatchList.setLayoutManager(new LinearLayoutManager(this));
+        matchDetailsViewModel.setAdapterClickListener(this);
+        binding.setViewmodel(matchDetailsViewModel);
+        binding.setMatch(thisMatch);
+        binding.setRace(matchDetailsViewModel.getThisRace());
+        binding.rvRecordList.setLayoutManager(new LinearLayoutManager(this));
         observe();
     }
     private void observe() {
-        raceDetailsViewModel.getMatchRelatedToRace().observe(this, new Observer<List<MatchEntry>>() {
+        matchDetailsViewModel.getRecordRelatedToMatch().observe(this, new Observer<List<RecordEntry>>() {
             @Override
-            public void onChanged(List<MatchEntry> matches) {
-                if(matches != null){
-                    raceDetailsViewModel.setMatchListAdapter(matches);
-                    binding.rvMatchList.setAdapter(raceDetailsViewModel.getAdapter());
+            public void onChanged(List<RecordEntry> records) {
+                if(records != null){
+                    matchDetailsViewModel.setRecordListAdapter(records);
+                    binding.rvRecordList.setAdapter(matchDetailsViewModel.getAdapter());
                 }
             }
         });
-        raceDetailsViewModel.isAddMatchClicked().observe(this, new Observer<Boolean>() {
+        matchDetailsViewModel.isAddRecordClicked().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean clicked) {
                 if (clicked) {
-                    raceDetailsViewModel.resetAddMatchClicked();
-                    Intent intent = new Intent(getApplicationContext(), CreateNewMatchActivity.class);
-                    intent.putExtra("raceItem", raceDetailsViewModel.getThisRace());
+                    matchDetailsViewModel.resetAddRecordClicked();
+                    Intent intent = new Intent(getApplicationContext(), CreateNewRecordActivity.class);
+                    intent.putExtra("matchItem", matchDetailsViewModel.getThisMatch());
+                    intent.putExtra("raceItem", matchDetailsViewModel.getThisRace());
                     startActivityForResult(intent,0);
                 }
             }

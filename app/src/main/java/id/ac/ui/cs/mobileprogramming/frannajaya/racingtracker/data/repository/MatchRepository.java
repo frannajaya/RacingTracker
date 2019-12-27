@@ -4,12 +4,10 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.Room;
 
 import java.util.List;
 
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.MatchEntry;
-import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceEntry;
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceTrackerDatabase;
 
 public class MatchRepository {

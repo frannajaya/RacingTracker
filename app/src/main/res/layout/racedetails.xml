@@ -13,7 +13,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="764dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#DFDFDF">
 
         <TextView
             android:layout_width="wrap_content"
@@ -49,10 +50,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_MatchList"
-            android:layout_width="250dp"
-            android:layout_height="200dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_gravity="center_horizontal"
-            android:background="#DFDFDF"/>
+            android:background="#FFFFFF"/>
 
         <Button
             android:id="@+id/add_match"

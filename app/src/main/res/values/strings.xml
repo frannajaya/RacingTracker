@@ -16,6 +16,12 @@
     <string name="add_match">Add Match</string>
     <string name="match_name">Match Name:</string>
 
+    <string name="create_new_record">Create New Record</string>
+    <string name="record_list">Record List</string>
+    <string name="add_record">Add Record</string>
+    <string name="record_name">Person Name:</string>
+    <string name="record_time">Time :</string>
+
     <string name="preferences">race.preferences</string>
     <string name="choose_language">Choose Languages</string>
 

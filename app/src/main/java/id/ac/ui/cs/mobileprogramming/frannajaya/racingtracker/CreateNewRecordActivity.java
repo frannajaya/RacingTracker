@@ -1,4 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker;
 
-public class CreateNewRecordActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class CreateNewRecordActivity extends AppCompatActivity {
 }

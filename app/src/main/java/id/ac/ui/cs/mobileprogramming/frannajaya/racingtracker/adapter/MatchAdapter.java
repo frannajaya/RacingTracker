@@ -19,7 +19,7 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.ViewHolder> 
     private List<MatchEntry> matchList;
     private OnItemClickListener clickListener;
 
-    public void setRaceList (List<MatchEntry> matchList) { this.matchList = matchList; }
+    public void setMatchList (List<MatchEntry> matchList) { this.matchList = matchList; }
 
     public void setClickListener(OnItemClickListener clickListener) {
         this.clickListener = clickListener;
@@ -47,7 +47,7 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.ViewHolder> 
 
     // interface of the method used by this class
     public interface OnItemClickListener {
-        void onItemClick(View view, MatchEntry raceItem);
+        void onItemClick(View view, MatchEntry matchItem);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

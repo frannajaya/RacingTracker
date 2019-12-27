@@ -16,6 +16,12 @@
     <string name="add_match">Tambah Pertandingan</string>
     <string name="match_name">Nama Pertandingan :</string>
 
+    <string name="create_new_record">Membuat Rekaman Baru</string>
+    <string name="record_list">Daftar Rekaman</string>
+    <string name="add_record">Tambah Rekaman</string>
+    <string name="record_name">Nama Peserta:</string>
+    <string name="record_time">Waktu :</string>
+
     <string name="preferences">race.preferences</string>
     <string name="choose_language">Pilih Bahasa</string>
 

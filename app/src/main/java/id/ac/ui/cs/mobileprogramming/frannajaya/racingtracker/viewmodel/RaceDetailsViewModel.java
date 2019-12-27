@@ -40,7 +40,7 @@ public class RaceDetailsViewModel extends AndroidViewModel {
     public LiveData<List<MatchEntry>> getMatchRelatedToRace() { return matchRepository.getMatchRelatedToRace(thisRace.getId()); }
 
     public void setMatchListAdapter(List<MatchEntry> matches){
-        matchAdapter.setRaceList(matches);
+        matchAdapter.setMatchList(matches);
         matchAdapter.notifyDataSetChanged();
     }
 

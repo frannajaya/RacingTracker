@@ -21,7 +21,7 @@ public interface RaceTrackerDao{
     @Query("SELECT * FROM race_db")
     LiveData<List<RaceEntry>> getAllRaces();
     @Query("SELECT * FROM race_db where :raceId == race_db.id")
-    LiveData<RaceEntry> getSpecifiedRace (int raceId);
+    RaceEntry getSpecifiedRace (int raceId);
 
 
     @Query("SELECT match_db.id, match_db.title, match_db.description, race_id FROM match_db JOIN race_db ON match_db.race_id == race_db.id where :raceIdGiven == match_db.race_id")

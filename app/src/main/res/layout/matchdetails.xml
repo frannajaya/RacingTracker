@@ -1,45 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewmodel"
+            type="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.viewmodel.MatchDetailsViewModel" />
 
+        <variable
+            name="match"
+            type="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.MatchEntry" />
+
+        <variable
+            name="race"
+            type="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceEntry" />
+    </data>
     <LinearLayout
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="764dp"
+        android:orientation="vertical"
+        android:background="#DFDFDF">
+
         <TextView
             android:id="@+id/name_of_race"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="25dp"
             android:layout_gravity="center_horizontal"
-            android:textAppearance="@style/activity_title"/>
+            android:textAppearance="@style/activity_title"
+            android:text="@{match.title}"/>
         <TextView
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/description"
-            android:paddingTop="50dp"
+            android:paddingTop="25dp"
             android:textAppearance="@style/text_form"/>
         <TextView
             android:id="@+id/description_input"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:layout_gravity="center_horizontal"/>
-        <view
-            android:layout_width="350dp"
-            android:layout_height="3dp"
-            android:paddingTop="50dp"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/linespace"/>
+            android:textAppearance="@style/text_form"
+            android:text="@{match.description}"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="25dp"
             android:layout_gravity="center_horizontal"
-            android:textAppearance="@style/activity_title"
+            android:textAppearance="@style/text_form"
+            android:text="@string/race_name"
             />
-        <ListView
-            android:layout_width="350dp"
-            android:layout_gravity="center_horizontal"
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"/>
+            android:paddingTop="25dp"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="@style/item_list"
+            android:text="@{race.title}"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="@style/item_list"
+            android:text="@string/record_list"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_RecordList"
+            android:layout_width="250dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#FFFFFF"/>
 
         <Button
             android:id="@+id/add_match"
@@ -49,7 +84,7 @@
             android:layout_marginTop="40dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/greenbutton"
-            android:text="@string/add_match"
+            android:text="@string/add_record"
             android:textAppearance="@style/new_race" />
     </LinearLayout>
 </layout>

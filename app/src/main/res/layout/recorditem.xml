@@ -4,7 +4,7 @@
     <data>
         <variable
             name="model"
-            type="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceEntry" />
+            type="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RecordEntry" />
 
         <variable
             name="position"
@@ -13,23 +13,30 @@
 
     <LinearLayout
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/rv_RaceItem"
-        android:layout_width="match_parent"
+        android:id="@+id/rv_RecordItem"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         card_view:cardCornerRadius="10dp"
+        android:layout_gravity="center_horizontal"
         android:elevation="5dp"
         android:background="#DFDFDF">
         <TextView
-            android:id="@+id/raceItemTitle"
-            android:layout_width="wrap_content"
+            android:id="@+id/recordItemTitle"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+            android:layout_gravity="center_horizontal"
             android:layout_margin="8dp"
-            android:text="@{model.title}"
+            android:text="@{model.personName}"
+            android:textSize="24sp" />
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="8dp"
+            android:text="@string/record_time"
             android:textSize="24sp" />
     </LinearLayout>
 </layout>
