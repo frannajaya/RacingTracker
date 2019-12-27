@@ -24,24 +24,22 @@
             />
 
         <Button
-            android:id="@+id/new_race_button"
+            android:id="@+id/engButton"
             android:layout_width="220sp"
             android:layout_height="55sp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/greenbutton"
-            android:textAppearance="@style/new_race"
             android:text="@string/english"
             android:layout_marginBottom="10dp"
             android:onClick="@{() -> viewModel.onEnSelected()}"
             />
 
         <Button
-            android:id="@+id/saved_race_button"
+            android:id="@+id/inButton"
             android:layout_width="220sp"
             android:layout_height="55sp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/bluebutton"
-            android:textAppearance="@style/saved_race"
             android:text="@string/indonesia"
             android:onClick="@{() -> viewModel.onInSelected()}"
             />

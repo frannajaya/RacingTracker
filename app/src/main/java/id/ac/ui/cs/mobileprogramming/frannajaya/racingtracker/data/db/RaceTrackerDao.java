@@ -5,6 +5,8 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import java.util.List;
+
 @Dao
 public interface RaceTrackerDao{
     @Insert
@@ -16,15 +18,20 @@ public interface RaceTrackerDao{
     @Insert
     long insertRecord(RecordEntry record);
 
-    @Query("SELECT DISTINCT * FROM Racedb")
-    LiveData<RaceEntry> getAllRaces();
+    @Query("SELECT * FROM race_db")
+    LiveData<List<RaceEntry>> getAllRaces();
+    @Query("SELECT * FROM race_db where :raceId == race_db.id")
+    LiveData<RaceEntry> getSpecifiedRace (int raceId);
 
-    @Query("SELECT * FROM Matchdb JOIN Racedb ON Matchdb.race_id == Racedb.id where :raceIdGiven == Matchdb.race_id")
-    LiveData<MatchEntry> getAllMatchRelated(int raceIdGiven);
 
-    @Query("SELECT * FROM Recorddb JOIN Matchdb ON Recorddb.match_id == Matchdb.id where :matchIdGiven == Recorddb.match_id")
-    LiveData<RecordEntry> getAllRecordEntryRelated(int matchIdGiven);
+    @Query("SELECT match_db.id, match_db.title, match_db.description, race_id FROM match_db JOIN race_db ON match_db.race_id == race_db.id where :raceIdGiven == match_db.race_id")
+    LiveData<List<MatchEntry>> getAllMatchRelated(int raceIdGiven);
+    @Query("SELECT * FROM match_db where :matchId == match_db.id")
+    LiveData<MatchEntry> getSpecifiedMatch (int matchId);
 
-    @Query("SELECT * FROM Recorddb where :recordId == Recorddb.id")
+
+    @Query("SELECT record_db.id, person_name, time_recorded, match_id FROM record_db JOIN match_db ON record_db.match_id == match_db.id where :matchIdGiven == record_db.match_id")
+    LiveData<List<RecordEntry>> getAllRecordEntryRelated(int matchIdGiven);
+    @Query("SELECT * FROM record_db where :recordId == record_db.id")
     LiveData<RecordEntry> getSpecifiedRecord (int recordId);
 }

@@ -7,12 +7,11 @@ import androidx.room.Room;
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceTrackerDatabase;
 
 public class RecordRepository {
-    private String DbName = "db_record";
     private RaceTrackerDatabase RTDatabase;
 
     // Constructor to initialize MatchRepository
     public RecordRepository(Context context) {
-        RTDatabase = Room.databaseBuilder(context, RaceTrackerDatabase.class, DbName).build();
+        RTDatabase = RaceTrackerDatabase.getTrackerDatabase(context);
     }
 
 //    NoteRepository noteRepository = new NoteRepository(getApplicationContext());

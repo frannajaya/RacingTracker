@@ -2,7 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable
-            name="item"
+            name="viewmodel"
+            type="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.viewmodel.RaceDetailsViewModel" />
+
+        <variable
+            name="race"
             type="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceEntry" />
     </data>
 
@@ -12,18 +16,18 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/name_of_race"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@{item.title}"
+            android:paddingTop="25dp"
+            android:text="@{race.title}"
             android:textAppearance="@style/activity_title" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:paddingTop="50dp"
+            android:paddingTop="25dp"
             android:text="@string/description"
             android:textAppearance="@style/text_form" />
 
@@ -32,27 +36,23 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:paddingTop="20dp"
-            android:text="@{item.description}" />
-
-        <view
-            android:layout_width="350dp"
-            android:layout_height="3dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/linespace"
-            android:paddingTop="50dp" />
+            android:textAppearance="@style/text_form"
+            android:text="@{race.description}" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textAppearance="@style/activity_title" />
+            android:paddingTop="25dp"
+            android:textAppearance="@style/item_list"
+            android:text="@string/match_list"/>
 
-        <ListView
-            android:layout_width="350dp"
-            android:layout_height="315dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_MatchList"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
-            android:textAlignment="center" />
+            android:background="#DFDFDF"/>
 
         <Button
             android:id="@+id/add_match"
@@ -63,6 +63,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/greenbutton"
             android:text="@string/add_match"
-            android:textAppearance="@style/new_race" />
+            android:textAppearance="@style/new_race"
+            android:onClick="@{() -> viewmodel.onAddMatchClicked()}"/>
     </LinearLayout>
 </layout>

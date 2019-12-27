@@ -1,69 +1,56 @@
 package id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
+import java.util.List;
 
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.adapter.RaceAdapter;
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceEntry;
-import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.databinding.RacedetailsBinding;
-import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.viewmodel.NewRaceViewModel;
+import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.databinding.SavedraceBinding;
+import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.viewmodel.RaceListViewModel;
 
 public class RaceListActivity extends AppCompatActivity implements RaceAdapter.OnItemClickListener {
     @Override
     public void onItemClick(View view, RaceEntry raceItem) {
-
+        Intent intent = new Intent(getApplicationContext(), RaceDetailsActivity.class);
+        intent.putExtra("raceItem", raceItem);
+        startActivity(intent);
     }
-//    private RacedetailsBinding binding;
-//    private NewRaceViewModel newRaceViewModel;
-//    private SharedPreferences preferences;
-//
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        preferences = getSharedPreferences(getString(R.string.preferences), Context.MODE_PRIVATE);
-//        binding = DataBindingUtil.setContentView(this, R.layout.racedetails);
-//        newRaceViewModel = ViewModelProviders.of(this).get(NewRaceViewModel.class);
-//        newRaceViewModel.setAdapterClickListener(this);
-//        newRaceViewModel.email.setValue(preferences.getString("email", ""));
-//
-//        binding.setViewModel(viewModel);
-//        binding.rvDebtList.setLayoutManager(new LinearLayoutManager(this));
-//        binding.rvDebtList.setAdapter(viewModel.getAdapter());
-//
-//        binding.ivBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                finish();
-//            }
-//        });
-//
-//        observe();
-//        ActivityGameBinding raceListBinding = DataBindingUtil.setContentView(this, R.layout.activity_game);
-//        newRaceViewModel = ViewModelProviders.of(this).get(GameViewModel.class);
-//        gameViewModel.init(player1, player2);
-//        activityGameBinding.setGameViewModel(gameViewModel);
-//        setUpOnGameEndListener();
-//
-//    }
-//
-//    @Override
-//    public void onItemClick(View view, RaceEntry raceItem) {
-//        Intent intent = new Intent(getApplicationContext(), RaceDetailsActivity.class);
-//        intent.putExtra("race", raceItem);
-//        startActivity(intent);
-//    }
-//
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//    }
-//
+    private SavedraceBinding binding;
+    private RaceListViewModel raceListViewModel;
+    private SharedPreferences preferences;
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        preferences = getSharedPreferences(getString(R.string.preferences), Context.MODE_PRIVATE);
+        binding = DataBindingUtil.setContentView(this, R.layout.savedrace);
+        raceListViewModel = ViewModelProviders.of(this).get(RaceListViewModel.class);
+
+        raceListViewModel.setAdapterClickListener(this);
+        binding.setViewmodel(raceListViewModel);
+        binding.rvRaceList.setLayoutManager(new LinearLayoutManager(this));
+        observe();
+    }
+    private void observe() {
+        raceListViewModel.getRaces().observe(this, new Observer<List<RaceEntry>>() {
+            @Override
+            public void onChanged(List<RaceEntry> races) {
+                raceListViewModel.setRaceListAdapter(races);
+                binding.rvRaceList.setAdapter(raceListViewModel.getAdapter());
+            }
+        });
+    }
 }

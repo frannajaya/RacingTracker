@@ -1,6 +1,8 @@
 package id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -37,24 +39,17 @@ public class CreateNewRaceActivity extends AppCompatActivity {
                 if (clicked) {
                     viewModel.resetCreateNewClicked();
                     if(viewModel.validInput()){
-                        int retVal = viewModel.saveInstance();
+                        long retVal = viewModel.saveInstance();
                         if (retVal == 1){
-                            Context context = getApplicationContext();
-                            CharSequence text = "Success Save " + viewModel.getTitle() + " Race";
-                            int duration = Toast.LENGTH_SHORT;
-
-                            Toast toast = Toast.makeText(context, text, duration);
-                            toast.show();
+                            Intent resultIntent = new Intent();
+                            // TODO Add extras or a data URI to this intent as appropriate.
+                            resultIntent.putExtra("result", "Success Save " + viewModel.getRaceTitle() + " Race");
+                            setResult(Activity.RESULT_OK, resultIntent);
+                            finish();
                         }
-                        finish();
                     }
                     else{
-                        Context context = getApplicationContext();
-                        CharSequence text = "You Have to fill all the field needed";
-                        int duration = Toast.LENGTH_SHORT;
-
-                        Toast toast = Toast.makeText(context, text, duration);
-                        toast.show();
+                        Toast.makeText(getApplicationContext(), "You have to fill all the field", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

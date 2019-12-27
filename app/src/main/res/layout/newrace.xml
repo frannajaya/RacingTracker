@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:inputType="text"
-                android:text="@{viewModel.raceTitle}"/>
+                android:onTextChanged="@{(text, start, before, count) -> viewModel.onRaceTitleChange(text, start, before, count)}"/>
             <TextView
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:inputType="textMultiLine"
-                android:text="@{viewModel.raceDescription}"/>
+                android:onTextChanged="@{(text, start, before, count) ->  viewModel.onRaceDescriptionChange(text, start, before, count)}"/>
             <Button
                 android:id="@+id/save_race"
                 android:layout_width="220sp"
@@ -63,7 +63,7 @@
                 android:background="@drawable/greenbutton"
                 android:layout_marginTop="40dp"
                 android:textAppearance="@style/new_race"
-                android:text="@string/new_race"
+                android:text="@string/create_new"
                 android:layout_marginBottom="10dp"
                 android:onClick="@{() -> viewModel.onCreateNewClicked()}"
                 />

@@ -11,15 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.R;
-import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.databinding.RaceitemBinding;
-import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceEntry;
+import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.MatchEntry;
+import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.databinding.MatchitemBinding;
 
-public class RaceAdapter extends RecyclerView.Adapter<RaceAdapter.ViewHolder>  {
+public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.ViewHolder>  {
 
-    private List<RaceEntry> raceList;
+    private List<MatchEntry> matchList;
     private OnItemClickListener clickListener;
 
-    public void setRaceList (List<RaceEntry> raceList) { this.raceList = raceList; }
+    public void setRaceList (List<MatchEntry> matchList) { this.matchList = matchList; }
 
     public void setClickListener(OnItemClickListener clickListener) {
         this.clickListener = clickListener;
@@ -28,44 +28,44 @@ public class RaceAdapter extends RecyclerView.Adapter<RaceAdapter.ViewHolder>  {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        RaceitemBinding binding = DataBindingUtil.inflate(
-                LayoutInflater.from(parent.getContext()), R.layout.raceitem, parent, false
+        MatchitemBinding binding = DataBindingUtil.inflate(
+                LayoutInflater.from(parent.getContext()), R.layout.matchitem, parent, false
         );
-        return new RaceAdapter.ViewHolder(binding);
+        return new MatchAdapter.ViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        RaceEntry raceItem = raceList.get(position);
-        holder.bind(raceItem, this.clickListener);
+        MatchEntry matchEntry = matchList.get(position);
+        holder.bind(matchEntry, this.clickListener);
     }
 
     @Override
     public int getItemCount() {
-        return raceList.size();
+        return matchList.size();
     }
 
     // interface of the method used by this class
     public interface OnItemClickListener {
-        void onItemClick(View view, RaceEntry raceItem);
+        void onItemClick(View view, MatchEntry raceItem);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private RaceitemBinding binding;
+        private MatchitemBinding binding;
 
-        private ViewHolder(@NonNull RaceitemBinding binding) {
+        private ViewHolder(@NonNull MatchitemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }
 
-        void bind(final RaceEntry raceItem, final OnItemClickListener clickListener) {
-            binding.setModel(raceItem);
+        void bind(final MatchEntry matchItem, final OnItemClickListener clickListener) {
+            binding.setModel(matchItem);
             binding.executePendingBindings();
             binding.getRoot().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (clickListener != null)
-                        clickListener.onItemClick(view, raceItem);
+                        clickListener.onItemClick(view, matchItem);
                 }
             });
         }

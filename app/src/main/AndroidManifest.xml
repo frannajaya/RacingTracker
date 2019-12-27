@@ -8,6 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/rac_trac_logo"
         android:supportsRtl="true"
+        android:configChanges="locale"
         android:theme="@style/AppTheme">
 
         <!-- Main Activity-->

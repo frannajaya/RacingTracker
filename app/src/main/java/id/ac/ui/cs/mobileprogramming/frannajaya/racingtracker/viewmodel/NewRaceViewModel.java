@@ -5,15 +5,10 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import java.util.ArrayList;
-
-import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.adapter.RaceAdapter;
-import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceEntry;
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.repository.RaceRepository;
 
 public class NewRaceViewModel extends AndroidViewModel {
     private RaceRepository raceRepo;
-    private RaceAdapter adapter = new RaceAdapter();
     private MutableLiveData<Boolean> createNewClicked = new MutableLiveData<>();
 
     public MutableLiveData<String> raceTitle = new MutableLiveData<>();
@@ -22,7 +17,16 @@ public class NewRaceViewModel extends AndroidViewModel {
     public NewRaceViewModel(Application application) {
         super(application);
         raceRepo = new RaceRepository(application);
-        adapter.setRaceList(new ArrayList<RaceEntry>());
+    }
+
+    public String getRaceTitle() { return raceTitle.getValue(); }
+    public void onRaceTitleChange(CharSequence s, int start, int before, int count) {
+        raceTitle.setValue(s.toString());
+    }
+
+    public String getRaceDescription() { return raceDescription.getValue(); }
+    public void onRaceDescriptionChange(CharSequence s, int start, int before, int count) {
+        raceDescription.setValue(s.toString());
     }
 
     public MutableLiveData<Boolean> isCreateNewClicked() { return createNewClicked; }
@@ -30,19 +34,17 @@ public class NewRaceViewModel extends AndroidViewModel {
     public void resetCreateNewClicked() { createNewClicked.setValue(false); }
 
     public boolean validInput() {
-        if (raceTitle.getValue().length() == 0){
+        if (getRaceTitle() == null){
             return false;
         }
-        if (raceDescription.getValue().length() == 0){
+        if (getRaceDescription() == null){
             return false;
         }
         return true;
     }
 
-    public int saveInstance() {
-        int retVal = raceRepo.saveInstance(raceTitle.getValue(), raceDescription.getValue());
+    public long saveInstance() {
+        long retVal = raceRepo.saveInstance(getRaceTitle(), getRaceDescription());
         return retVal;
     }
-
-    public String getTitle() { return raceTitle.getValue(); }
 }

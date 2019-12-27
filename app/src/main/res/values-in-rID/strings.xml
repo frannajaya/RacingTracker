@@ -1,17 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Racingtracker</string>
     <string name="app_title">Racing Tracker</string>
 
     <string name="new_race">Balapan Baru</string>
+    <string name="create_new_race">Membuat Balapan Baru</string>
     <string name="race_name">Nama Balapan :</string>
     <string name="saved_race">Balapan Tersimpan</string>
-    <string name="create_new_race">Buat Baru</string>
+    <string name="create_new">Buat Baru</string>
 
     <string name="description">Deskripsi :</string>
 
-    <string name="create_new_match">Buat Baru</string>
-    <string name="new_match">Pertandingan Baru</string>
+    <string name="create_new_match">Membuat Pertandingan Baru</string>
+    <string name="match_list">Kumpulan Pertandingan</string>
     <string name="add_match">Tambah Pertandingan</string>
+    <string name="match_name">Nama Pertandingan :</string>
 
     <string name="preferences">race.preferences</string>
     <string name="choose_language">Pilih Bahasa</string>

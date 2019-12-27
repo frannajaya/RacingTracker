@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewmodel"
+            type="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.viewmodel.NewMatchViewModel" />
+        <variable
+            name="race"
+            type="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceEntry" />
+    </data>
+
     <LinearLayout
         android:id="@+id/new_race"
         android:layout_width="fill_parent"
@@ -34,19 +43,21 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/text_form"/>
+                android:textAppearance="@style/text_form"
+                android:text="@{race.title}"/>
             <TextView
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/race_name"
+                android:text="@string/match_name"
                 android:textAppearance="@style/text_form"/>
             <EditText
                 android:id="@+id/match_name_input"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:inputType="text" />
+                android:inputType="text"
+                android:onTextChanged="@{(text, start, before, count) ->  viewmodel.onMatchTitleChange(text, start, before, count)}"/>
             <TextView
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
@@ -54,21 +65,23 @@
                 android:text="@string/description"
                 android:textAppearance="@style/text_form"/>
             <EditText
-                android:id="@+id/description_input"
+                android:id="@+id/match_description_input"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:onTextChanged="@{(text, start, before, count) ->  viewmodel.onMatchDescriptionChange(text, start, before, count)}"/>
             <Button
-                android:id="@+id/save_race"
+                android:id="@+id/save_match"
                 android:layout_width="240sp"
                 android:layout_height="60sp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/greenbutton"
                 android:layout_marginTop="40dp"
                 android:textAppearance="@style/new_race"
-                android:text="@string/new_match"
+                android:text="@string/create_new"
                 android:layout_marginBottom="10dp"
+                android:onClick="@{() -> viewmodel.onCreateNewClicked()}"
                 />
         </LinearLayout>
     </LinearLayout>

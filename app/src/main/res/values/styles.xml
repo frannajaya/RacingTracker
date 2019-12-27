@@ -25,13 +25,13 @@
         <item name="android:textColor">#FFFFFF</item>
     </style>
     <style name="activity_title">
-        <item name='android:textSize'>30sp</item>
+        <item name='android:textSize'>45sp</item>
     </style>
     <style name="item_list">
         <item name='android:textSize'>26sp</item>
     </style>
     <style name="text_form">
-        <item name='android:textSize'>22sp</item>
+        <item name='android:textSize'>34sp</item>
     </style>
 
 </resources>

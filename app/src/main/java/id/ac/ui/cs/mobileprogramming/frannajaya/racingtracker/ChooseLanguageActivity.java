@@ -1,8 +1,10 @@
 package id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -28,7 +30,7 @@ public class ChooseLanguageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         preferences = getSharedPreferences(getString(R.string.preferences), Context.MODE_PRIVATE);
-        binding = DataBindingUtil.setContentView(this, R.layout.home);
+        binding = DataBindingUtil.setContentView(this, R.layout.chooselanguage);
         chooseLanguageViewModel = ViewModelProviders.of(this).get(ChooseLanguageViewModel.class);
 
         binding.setViewModel(chooseLanguageViewModel);
@@ -41,13 +43,10 @@ public class ChooseLanguageActivity extends AppCompatActivity {
             public void onChanged(Boolean clicked) {
                 if (clicked) {
                     chooseLanguageViewModel.resetEnSelected();
-                    Resources res = getApplicationContext().getResources();
-                    // Change locale settings in the app.
-                    DisplayMetrics dm = res.getDisplayMetrics();
-                    android.content.res.Configuration conf = res.getConfiguration();
-                    conf.setLocale(new Locale("en")); // API 17+ only.
-                    // Use conf.locale = new Locale(...) if targeting lower versions
-                    res.updateConfiguration(conf, dm);
+                    preferences.edit().putString("language", "en").apply();
+                    Intent resultIntent = new Intent();
+                    resultIntent.putExtra("result", "Success change language to English");
+                    setResult(Activity.RESULT_OK, resultIntent);
                     finish();
                 }
             }
@@ -57,13 +56,10 @@ public class ChooseLanguageActivity extends AppCompatActivity {
             public void onChanged(Boolean clicked) {
                 if (clicked) {
                     chooseLanguageViewModel.resetInSelected();
-                    Resources res = getApplicationContext().getResources();
-                    // Change locale settings in the app.
-                    DisplayMetrics dm = res.getDisplayMetrics();
-                    android.content.res.Configuration conf = res.getConfiguration();
-                    conf.setLocale(new Locale("in")); // API 17+ only.
-                    // Use conf.locale = new Locale(...) if targeting lower versions
-                    res.updateConfiguration(conf, dm);
+                    preferences.edit().putString("language", "in").apply();
+                    Intent resultIntent = new Intent();
+                    resultIntent.putExtra("result", "Berhasil mengganti bahasa menjadi bahasa Indonesia");
+                    setResult(Activity.RESULT_OK, resultIntent);
                     finish();
                 }
             }
