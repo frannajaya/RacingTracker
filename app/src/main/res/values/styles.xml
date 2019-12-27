@@ -34,4 +34,9 @@
         <item name='android:textSize'>34sp</item>
     </style>
 
+    <style name="take_picture">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
 </resources>

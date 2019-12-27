@@ -10,7 +10,7 @@
     </data>
 
     <LinearLayout
-        android:id="@+id/new_race"
+        android:id="@+id/new_match"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"

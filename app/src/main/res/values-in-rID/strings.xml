@@ -27,4 +27,6 @@
 
     <string name="english">English</string>
     <string name="indonesia">Indonesia</string>
+    <string name="start_time">Mulai</string>
+    <string name="stop_time">Stop Time</string>
 </resources>

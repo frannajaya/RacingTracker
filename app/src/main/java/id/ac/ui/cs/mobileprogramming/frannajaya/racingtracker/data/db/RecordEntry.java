@@ -1,5 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db;
 
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -27,30 +28,47 @@ public class RecordEntry implements Parcelable {
     @ColumnInfo(name = "person_name")
     private String personName;
     @ColumnInfo(name = "time_recorded")
-    private long timeRecorded;
+    private String timeRecorded;
+    @ColumnInfo(name = "image_location")
+    private String imageLocation;
 
     @ColumnInfo(name = "match_id")
     private int matchId;
 
-    public RecordEntry(String personName, long timeRecorded) {
+    public RecordEntry(String personName, String timeRecorded, String imageLocation, int matchId) {
         this.personName = personName;
         this.timeRecorded = timeRecorded;
+        this.imageLocation = imageLocation;
+        this.matchId = matchId;
     }
 
     protected RecordEntry(Parcel in) {
         id = in.readInt();
         personName = in.readString();
-        timeRecorded = in.readLong();
+        timeRecorded = in.readString();
+        imageLocation = in.readString();
         matchId = in.readInt();
     }
 
     public static final Creator<RecordEntry> CREATOR = new Creator<RecordEntry>() {
         @Override
-        public RecordEntry createFromParcel(Parcel in) { return new RecordEntry(in); }
+        public RecordEntry createFromParcel(Parcel in) {
+            return new RecordEntry(in);
+        }
 
         @Override
-        public RecordEntry[] newArray(int size) { return new RecordEntry[size]; }
+        public RecordEntry[] newArray(int size) {
+            return new RecordEntry[size];
+        }
     };
+
+    public String getImageLocation() {
+        return imageLocation;
+    }
+
+    public void setImageLocation(String imageLocation) {
+        this.imageLocation = imageLocation;
+    }
 
     public int getId() {
         return id;
@@ -68,11 +86,11 @@ public class RecordEntry implements Parcelable {
         this.personName = personName;
     }
 
-    public long getTimeRecorded() {
+    public String getTimeRecorded() {
         return timeRecorded;
     }
 
-    public void setTimeRecorded(long timeRecorded) {
+    public void setTimeRecorded(String timeRecorded) {
         this.timeRecorded = timeRecorded;
     }
 
@@ -91,9 +109,12 @@ public class RecordEntry implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+
         dest.writeInt(id);
         dest.writeString(personName);
-        dest.writeLong(timeRecorded);
+        dest.writeString(timeRecorded);
+        dest.writeString(imageLocation);
         dest.writeInt(matchId);
     }
+
 }

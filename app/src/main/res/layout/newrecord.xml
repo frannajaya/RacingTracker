@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewmodel"
+            type="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.viewmodel.NewRecordViewModel" />
+        <variable
+            name="race"
+            type="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceEntry" />
+        <variable
+            name="match"
+            type="id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.MatchEntry" />
+    </data>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/new_record"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:background="#DFDFDF"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="70dp"
+                android:text="@string/create_new_record"
+                android:textAppearance="@style/activity_title"
+                />
+
+            <LinearLayout
+                android:id="@+id/form_new_match"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:background="#DFDFDF"
+                android:paddingTop="20dp">
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/race_name"
+                    android:textAppearance="@style/text_form"/>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/text_form"
+                    android:text="@{race.title}"/>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/match_name"
+                    android:textAppearance="@style/text_form"/>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/text_form"
+                    android:text="@{match.title}"/>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/record_name"
+                    android:textAppearance="@style/text_form"/>
+                <EditText
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:inputType="textMultiLine"
+                    android:onTextChanged="@{(text, start, before, count) ->  viewmodel.onPersonNameChange(text, start, before, count)}"/>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/record_time"
+                    android:textAppearance="@style/text_form"/>
+                <TextView
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:inputType="textMultiLine"
+                    android:text="@{viewmodel.recordTime}"/>
+                <Button
+                    android:id="@+id/startBtn"
+                    android:layout_width="240sp"
+                    android:layout_height="60sp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/greenbutton"
+                    android:layout_marginTop="40dp"
+                    android:textAppearance="@style/new_race"
+                    android:text="@string/start_time"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="visible"
+                    android:onClick="@{() -> viewmodel.onStartClicked()}"
+                    />
+                <Button
+                    android:id="@+id/finishBtn"
+                    android:layout_width="240sp"
+                    android:layout_height="60sp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/redbutton"
+                    android:layout_marginTop="40dp"
+                    android:textAppearance="@style/new_race"
+                    android:text="@string/stop_time"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="invisible"
+                    android:onClick="@{() -> viewmodel.onStartClicked()}"
+                    />
+                <ImageView
+                    android:id="@+id/imageview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    />
+                <Button
+                    android:id="@+id/button_image"
+                    android:layout_width="240sp"
+                    android:layout_height="60sp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/greenbutton"
+                    android:layout_marginTop="40dp"
+                    android:textAppearance="@style/take_picture"
+                    android:layout_marginBottom="10dp"
+                    android:onClick="@{() -> viewmodel.onTakePictureClicked()}"
+                    android:text="Take a picture!"/>
+                <Button
+                    android:id="@+id/save_record"
+                    android:layout_width="240sp"
+                    android:layout_height="60sp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/greenbutton"
+                    android:layout_marginTop="40dp"
+                    android:textAppearance="@style/new_race"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/create_new"
+                    android:onClick="@{() -> viewmodel.onCreateNewClicked()}"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

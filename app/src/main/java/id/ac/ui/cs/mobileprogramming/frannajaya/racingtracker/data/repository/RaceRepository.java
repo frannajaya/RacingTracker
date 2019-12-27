@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceEntry;
 import id.ac.ui.cs.mobileprogramming.frannajaya.racingtracker.data.db.RaceTrackerDatabase;
@@ -24,7 +25,13 @@ public class RaceRepository {
 
     public RaceEntry getRaceById(int id) {
         GetSpecifiedRaceAsyncTask item = new GetSpecifiedRaceAsyncTask(RTDatabase);
-        item.execute(id);
+        try {
+            item.execute(id).get();
+        } catch (ExecutionException e) {
+            return null;
+        } catch (InterruptedException e) {
+            return null;
+        }
         return item.getRace();
     }
 
